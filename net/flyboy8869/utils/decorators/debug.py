@@ -1,8 +1,12 @@
 __author__ = 'charles'
 
 
-def debug(callable):
+def debug(func):
     """Decorate a callable to display the arguments it was called with.
+
+    Args:
+        func (callable): the original function/method to be decorated
+        automatically passed by the python decorator mechanism
 
     The debug decorator will display the positional and keyword arguments
     that a function or method is called with.
@@ -30,12 +34,12 @@ def debug(callable):
     """
 
     def wrapper(*args, **kwargs):
-        print("----------  " + callable.__name__ + "  -------------")
+        print("----------  " + func.__name__ + "  -------------")
         print("p_args:" , args)
-        if callable.__defaults__ is not None:
-            print("kwargs defaults:", callable.__defaults__)
+        if func.__defaults__ is not None:
+            print("kwargs defaults:", func.__defaults__)
             print("kwargs supplied:", kwargs)
 
-        return callable(*args, **kwargs)
+        return func(*args, **kwargs)
 
     return wrapper
