@@ -1,8 +1,5 @@
 __author__ = 'charles'
 
 
-def odd(integer):
-    if integer % 2:
-        return True
-    else:
-        return False
+def odd(integer) -> bool:
+    return integer % 2 != 0
