@@ -1,8 +1,5 @@
 __author__ = 'charles'
 
 
-def even(integer):
-    if integer % 2 == 0:
-        return True
-    else:
-        return False
+def even(integer) -> bool:
+    return integer % 2 == 0
